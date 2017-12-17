@@ -1,4 +1,5 @@
 import tkinter
+import os
 import re
 from tkinter import *
 from tkinter import messagebox
@@ -11,7 +12,7 @@ class Calculator(object):
 		self.tk.title('计算器')
 		self.tk.minsize(370,460)
 		self.tk.maxsize(400,400)
-		self.tk.iconbitmap('C://favicon.ico')
+		self.tk.iconbitmap(os.getcwd()+'/favicon.ico')
 		self.inputlist=[]
 		self.midstr=''
 		self.ButtonList=['清空','/','*','退格',7,8,9,'-',4,5,6,'+',1,2,3,0,'.','=','1/x','%','sqrt']
@@ -225,7 +226,7 @@ class Baoxian(object):
 		self.baoxianTk.title('基本养老保险金计算器')
 		self.baoxianTk.maxsize(400,500)
 		self.baoxianTk.minsize(400,500)
-		self.baoxianTk.iconbitmap('C://favicon.ico')
+		self.baoxianTk.iconbitmap(os.getcwd()+'/favicon.ico')
 		#字体设置
 		self.EntryFont=tkfont.Font(self.baoxianTk,size=13)
 		self.ButtonFont=tkfont.Font(self.baoxianTk,size=12)
