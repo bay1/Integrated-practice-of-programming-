@@ -1,0 +1,9 @@
+C:\Users\bayi\Desktop\shiyan\多文档编辑器\多文档编辑器\bin\Debug\多文档编辑器.exe
+C:\Users\bayi\Desktop\shiyan\多文档编辑器\多文档编辑器\bin\Debug\多文档编辑器.pdb
+C:\Users\bayi\Desktop\shiyan\多文档编辑器\多文档编辑器\obj\x86\Debug\多文档编辑器.FormMain.resources
+C:\Users\bayi\Desktop\shiyan\多文档编辑器\多文档编辑器\obj\x86\Debug\多文档编辑器.FormChild.resources
+C:\Users\bayi\Desktop\shiyan\多文档编辑器\多文档编辑器\obj\x86\Debug\多文档编辑器.FormFind.resources
+C:\Users\bayi\Desktop\shiyan\多文档编辑器\多文档编辑器\obj\x86\Debug\多文档编辑器.Properties.Resources.resources
+C:\Users\bayi\Desktop\shiyan\多文档编辑器\多文档编辑器\obj\x86\Debug\多文档编辑器.csproj.GenerateResource.Cache
+C:\Users\bayi\Desktop\shiyan\多文档编辑器\多文档编辑器\obj\x86\Debug\多文档编辑器.exe
+C:\Users\bayi\Desktop\shiyan\多文档编辑器\多文档编辑器\obj\x86\Debug\多文档编辑器.pdb
