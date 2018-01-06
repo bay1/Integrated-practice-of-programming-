@@ -2,12 +2,16 @@
 #coding=utf-8
 import sys
 import phonebook
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication
+
+if 'studentMessages' not in vars():
+    studentMessages = {}
+    studentMessage = {}
+else:
+    pass
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    MainWindow = QMainWindow()
-    ui = phonebook.Ui_students()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    ui = phonebook.Ui_Students()
+    ui.show()
     sys.exit(app.exec_())
