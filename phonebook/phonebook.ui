@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>students</class>
+ <widget class="QDialog" name="students">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1125</width>
+    <height>594</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1125</width>
+    <height>594</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1125</width>
+    <height>594</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>楷体</family>
+    <pointsize>9</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>通讯录</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../../.designer/backup/favicon.ico</normaloff>../../../.designer/backup/favicon.ico</iconset>
+  </property>
+  <widget class="QPushButton" name="addButton">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>20</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>添加</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>add_user.png</normaloff>add_user.png</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="editButton">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>20</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>编辑</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>edit.png</normaloff>edit.png</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="searchButton">
+   <property name="geometry">
+    <rect>
+     <x>580</x>
+     <y>20</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>查找</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>search.png</normaloff>search.png</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="deleteButton">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>20</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>删除</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>delete.png</normaloff>delete.png</iconset>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="studentsTableWidget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>90</y>
+     <width>961</width>
+     <height>501</height>
+    </rect>
+   </property>
+   <property name="toolTipDuration">
+    <number>-1</number>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;楷体&quot;;</string>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="lineWidth">
+    <number>1</number>
+   </property>
+   <property name="rowCount">
+    <number>0</number>
+   </property>
+   <property name="columnCount">
+    <number>9</number>
+   </property>
+   <attribute name="horizontalHeaderVisible">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="horizontalHeaderCascadingSectionResizes">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>106</number>
+   </attribute>
+   <attribute name="horizontalHeaderHighlightSections">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderMinimumSectionSize">
+    <number>54</number>
+   </attribute>
+   <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderStretchLastSection">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderHighlightSections">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderStretchLastSection">
+    <bool>false</bool>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>学号</string>
+    </property>
+    <property name="font">
+     <font>
+      <underline>false</underline>
+     </font>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>姓名</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>性别</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>年龄</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>出生日期</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>手机号码</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>家庭住址</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>电子邮箱</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>专业</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QTreeWidget" name="treeWidget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>90</y>
+     <width>161</width>
+     <height>501</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>楷体</family>
+    </font>
+   </property>
+   <property name="columnCount">
+    <number>1</number>
+   </property>
+   <attribute name="headerVisible">
+    <bool>true</bool>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>全部</string>
+    </property>
+   </column>
+   <item>
+    <property name="text">
+     <string>计算机科学与技术</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>信息安全</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>网络工程</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>电子科学与技术</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QPushButton" name="backupButton">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>20</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>备份</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>backup.png</normaloff>backup.png</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="redoButton">
+   <property name="geometry">
+    <rect>
+     <x>840</x>
+     <y>20</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>恢复</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>redo.png</normaloff>redo.png</iconset>
+   </property>
+  </widget>
+  <zorder>studentsTableWidget</zorder>
+  <zorder>treeWidget</zorder>
+  <zorder>addButton</zorder>
+  <zorder>redoButton</zorder>
+  <zorder>deleteButton</zorder>
+  <zorder>searchButton</zorder>
+  <zorder>backupButton</zorder>
+  <zorder>editButton</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
