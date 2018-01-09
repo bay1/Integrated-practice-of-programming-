@@ -1,12 +1,18 @@
 # -*- coding: utf-8 -*-
-
+import re
+import os
+from PyQt5.QtCore import *
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QWidget
-from fun import addStudent
+from PyQt5.QtWidgets import *
+import xml.dom.minidom as DM
+import xml.etree.ElementTree as ET
 
-class Ui_addDialog(QWidget):
-    def __init__(self):
-        super().__init__()
+studentMessage={}
+
+class Ui_addDialog(QDialog):
+    Signal_Add = pyqtSignal(tuple)
+    def __init__(self,parent=None):
+        super(Ui_addDialog,self).__init__(parent)
         self.initUi()
 
     def initUi(self):
@@ -97,19 +103,7 @@ class Ui_addDialog(QWidget):
         self.retranslateUi()
         self.cancleButton.clicked['bool'].connect(self.close)
         QtCore.QMetaObject.connectSlotsByName(self)
-        self.confirmButton.clicked.connect(lambda: addStudent(
-            self.idlineEdit.text(),
-            self.namelineEdit.text(),
-            self.radioButton_man,
-            self.radioButton_women,
-            self.agespinBox.value(),
-            self.borndateEdit.text(),
-            self.phonelineEdit.text(),
-            self.emaillineEdit.text(),
-            self.homelineEdit.text(),
-            self.professcomboBox.currentText(),
-            self
-        ))
+        self.confirmButton.clicked.connect(self.addStudent)
 
     def retranslateUi(self):
         _translate = QtCore.QCoreApplication.translate
@@ -131,3 +125,104 @@ class Ui_addDialog(QWidget):
         self.professcomboBox.setItemText(1, _translate("addDialog", "信息安全"))
         self.professcomboBox.setItemText(2, _translate("addDialog", "网络工程"))
         self.professcomboBox.setItemText(3, _translate("addDialog", "电子科学与技术"))
+
+    def emitSign(self,var:tuple):
+        self.Signal_Add.emit(var)
+
+    def addStudent(self):
+        id=self.idlineEdit.text()
+        name=self.namelineEdit.text()
+        man=self.radioButton_man
+        women=self.radioButton_women
+        age=self.agespinBox.value()
+        borndate=self.borndateEdit.text()
+        phone=self.phonelineEdit.text()
+        email=self.emaillineEdit.text()
+        home=self.homelineEdit.text()
+        profession=self.professcomboBox.currentText()
+        if id.isdigit() and phone.isdigit() and self.validateChinese(name) != 0 and self.validateChinese(home) != 0:
+            checkIdResult = self.validateId(id)
+            if checkIdResult == 1:
+                if self.validateEmail(email) == 1:
+                    if man.isChecked():
+                        sex = '男'
+                    elif women.isChecked():
+                        sex = '女'
+                    else:
+                        sex = '妖'
+                    studentMessage['ID'] = id
+                    studentMessage['name'] = name
+                    studentMessage['sex'] = sex
+                    studentMessage['age'] = str(age)
+                    studentMessage['borndate'] = borndate
+                    studentMessage['phone'] = phone
+                    studentMessage['email'] = email
+                    studentMessage['home'] = home
+                    studentMessage['profession'] = profession
+                    doc=ET.parse(os.getcwd()+'/student.xml')
+                    root_name = doc.getroot()
+                    node_name = ET.SubElement(root_name,id)
+                    for key,val in sorted(studentMessage.items(), key=lambda e:e[0], reverse=True):
+                        key = ET.SubElement(node_name, key)
+                        key.text = val
+                    doc.write(os.getcwd()+'/student.xml')
+                    self.updateTable()
+                    QMessageBox.information(self, "提示", self.tr("添加成功!"))
+                    self.close()
+                else:
+                    QMessageBox.information(self, "提示", self.tr("邮箱错误!"))
+            else:
+                QMessageBox.information(self, "提示", self.tr("学号已存在!"))
+        else:
+            QMessageBox.information(self, "提示", self.tr("请检查输入!"))
+
+    def validateChinese(self,str):
+        pattern = re.compile(u"[\u4e00-\u9fa5]+")
+        result = re.findall(pattern, str)
+        if str is None or len(result) == 0:
+            return 0
+        else:
+            if result[0] != str:
+                return 0
+            else:
+                return 1
+
+    def validateEmail(self,email):
+        str = r'^[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){0,4}@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){0,4}$'
+        if len(email) > 7:
+            if re.match(str, email):
+                return 1
+        return 0
+
+    def validateId(self,addId):
+        checkSign = 1
+        studentMessages=self.xml_to_dict()
+        for student in studentMessages.keys():
+            if addId == student:
+                checkSign = 0
+        return checkSign
+
+    def updateTable(self):
+        line = -1
+        studentMessages=self.xml_to_dict()
+        print(studentMessages)
+        # headerList = ['ID', 'name', 'sex', 'age', 'borndate', 'phone', 'home', 'email', 'profession']
+        # sorted(studentMessages.items(), key=lambda e: e[0], reverse=True)
+        # for student in studentMessages:
+        #     line += 1
+        #     for column in range(0, 9):
+        #         self.emitSign((line,column,studentMessages[student][headerList[column]]))
+
+    def xml_to_dict(self):
+        dict_new = {}
+        doc=ET.parse(os.getcwd()+'/student.xml')
+        root_name = doc.getroot()
+        for key, value in enumerate(root_name):
+            dict_init = {}
+            list_init = []
+            for item in value:
+                list_init.append([item.tag, item.text])
+                for lists in list_init:
+                    dict_init[lists[0]] = lists[1]
+            dict_new[key] = dict_init
+        return dict_new
