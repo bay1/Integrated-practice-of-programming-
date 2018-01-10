@@ -1,4 +1,5 @@
 import re
+import add
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import *
 from add import Ui_addDialog
@@ -152,7 +153,8 @@ class Ui_Students(QDialog,QQuickView):
         addWindow.show()
 
     def getDate(self,var:tuple):
-        self.studentsTableWidget.setRowCount(self.studentsTableWidget.columnCount()+1)
+        if var[1]==0:
+            self.studentsTableWidget.insertRow(self.studentsTableWidget.rowCount())
         self.studentsTableWidget.setItem(var[0],var[1],QTableWidgetItem(var[2]))
         if self.studentsTableWidget.item(var[0],var[1]):
             self.studentsTableWidget.item(var[0],var[1]).setTextAlignment(QtCore.Qt.AlignCenter)

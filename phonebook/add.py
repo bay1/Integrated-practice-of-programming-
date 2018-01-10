@@ -4,8 +4,7 @@ import os
 from PyQt5.QtCore import *
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import *
-import xml.dom.minidom as DM
-import xml.etree.ElementTree as ET
+from lxml import etree
 
 studentMessage={}
 
@@ -159,13 +158,14 @@ class Ui_addDialog(QDialog):
                     studentMessage['email'] = email
                     studentMessage['home'] = home
                     studentMessage['profession'] = profession
-                    doc=ET.parse(os.getcwd()+'/student.xml')
-                    root_name = doc.getroot()
-                    node_name = ET.SubElement(root_name,id)
+                    xml=etree.parse(os.getcwd()+'/student.xml')
+                    root = xml.getroot()
+                    student=etree.Element("student"+id)
+                    root.append(student)
                     for key,val in sorted(studentMessage.items(), key=lambda e:e[0], reverse=True):
-                        key = ET.SubElement(node_name, key)
+                        key = etree.SubElement(student, key)
                         key.text = val
-                    doc.write(os.getcwd()+'/student.xml')
+                    xml.write(os.getcwd()+'/student.xml', pretty_print=True, encoding='utf-8')
                     self.updateTable()
                     QMessageBox.information(self, "提示", self.tr("添加成功!"))
                     self.close()
@@ -205,24 +205,25 @@ class Ui_addDialog(QDialog):
     def updateTable(self):
         line = -1
         studentMessages=self.xml_to_dict()
-        print(studentMessages)
-        # headerList = ['ID', 'name', 'sex', 'age', 'borndate', 'phone', 'home', 'email', 'profession']
-        # sorted(studentMessages.items(), key=lambda e: e[0], reverse=True)
-        # for student in studentMessages:
-        #     line += 1
-        #     for column in range(0, 9):
-        #         self.emitSign((line,column,studentMessages[student][headerList[column]]))
+        headerList = ['ID', 'name', 'sex', 'age', 'borndate', 'phone', 'home', 'email', 'profession']
+        sorted(studentMessages.items(), key=lambda e: e[0], reverse=True)
+        for student in studentMessages:
+            line += 1
+            for column in range(0, 9):
+                self.emitSign((line,column,studentMessages[student][headerList[column]]))
 
     def xml_to_dict(self):
         dict_new = {}
-        doc=ET.parse(os.getcwd()+'/student.xml')
+        doc=etree.parse(os.getcwd()+'/student.xml')
         root_name = doc.getroot()
-        for key, value in enumerate(root_name):
+        for key,value in enumerate(root_name):
             dict_init = {}
             list_init = []
             for item in value:
+                if item.tag=='ID':
+                    ID=item.text
                 list_init.append([item.tag, item.text])
                 for lists in list_init:
                     dict_init[lists[0]] = lists[1]
-            dict_new[key] = dict_init
+            dict_new[ID] = dict_init
         return dict_new

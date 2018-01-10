@@ -1,0 +1,13 @@
+<students>
+  <student1>
+    <sex>男</sex>
+    <profession>计算机科学与技术</profession>
+    <phone>156</phone>
+    <name>张</name>
+    <home>江苏</home>
+    <email>16561@qq.com</email>
+    <borndate>2000/1/1</borndate>
+    <age>20</age>
+    <ID>1</ID>
+  </student1>
+<student2><sex>男</sex><profession>网络工程</profession><phone>1516</phone><name>王</name><home>浙江</home><email>156@qq.com</email><borndate>2000/1/1</borndate><age>19</age><ID>2</ID></student2></students>

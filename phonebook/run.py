@@ -3,20 +3,16 @@
 import sys
 import os
 import phonebook
-import xml.dom.minidom as DM
+from lxml import etree
 from PyQt5.QtWidgets import QApplication
 
 def setXml():
 	if os.path.exists(os.getcwd()+'/student.xml'):
 		pass
 	else:
-		print(os.getcwd())
-		DM.parse(os.getcwd()+'/stdent.xml')
-		impl = DM.getDOMImplementation()
-		dom = impl.createDocument(None,'students', None)
-		f= open(os.getcwd()+'/student.xml', 'w', encoding='utf-8')
-		dom.writexml(f, indent='\t', addindent='\t', newl='\n', encoding="utf-8")
-		f.close()
+		root = etree.Element('students')
+		tree = etree.ElementTree(root)
+		tree.write(os.getcwd()+'/student.xml', pretty_print=True, xml_declaration=True, encoding='utf-8')
 
 if __name__ == '__main__':
 	setXml()
