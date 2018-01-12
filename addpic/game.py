@@ -127,7 +127,7 @@ def startGame(newPic,VHNUMS):
     pygame.display.set_icon(icoSet)
 
     #成功
-    success = pygame.mixer.Sound(os.getcwd()+'success.wav')
+    success = pygame.mixer.Sound(os.getcwd()+'/success.wav')
     success.set_volume(0.25)
 
     info_surface = pygame.Surface((300,100))
