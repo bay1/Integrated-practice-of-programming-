@@ -9,3 +9,7 @@ pygame+wxPython
 ![效果](https://s1.ax1x.com/2018/01/12/pG0JW8.md.png)
 
 >requirements.txt里面多输出一部分依赖.....
+功能:
+- 自定义图片
+- 时间限制
+- 自定义切割数
