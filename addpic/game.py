@@ -10,35 +10,18 @@ from PIL import Image,ImageTk
 import matplotlib.pyplot as plt
 
 # 一些常量
-WINDOWWIDTH = 700
-WINDOWHEIGHT = 700
 BACKGROUNDCOLOR = (255, 255, 255)
-BLUE = (0, 0, 255)
+red = (255,0,0)
 BLACK = (0, 0, 0)
 FPS = 40
 
 MAXRANDTIME = 100
 
-pretime = time.localtime()
-pretime_min,pretime_sec = pretime.tm_min,pretime.tm_sec
 
-# 初始化
-pygame.init()
-pygame.mixer.init()
-mainClock = pygame.time.Clock()
-
-#设置图标
-icoPath = os.getcwd()+'/favicon.ico'
-icoSet = pygame.image.load(icoPath)
-pygame.display.set_icon(icoSet)
-
-#成功
-success = pygame.mixer.Sound(os.getcwd()+'success.wav')
-success.set_volume(0.25)
-
-info_surface = pygame.Surface((300,100))
-font = pygame.font.Font(os.getcwd()+"/simsun.ttf",17)
-red = (255,0,0)
+def startTime():
+    pretime = time.localtime()
+    pretime_min,pretime_sec = pretime.tm_min,pretime.tm_sec
+    return pretime_min,pretime_sec
 
 # 随机生成游戏盘面
 def newGameBoard(VHNUMS,CELLNUMS):
@@ -106,8 +89,8 @@ def successEnd():
 def falseEnd():
     wx.MessageBox("超时了呦！","提示")
 
-def draw_info(surfacetodraw,minutes,seconds):
-    surfacetodraw.fill((255,255,255))
+def draw_info(surfacetodraw,minutes,seconds,font):
+    surfacetodraw.fill(BACKGROUNDCOLOR)
     now = time.localtime()
     now_min,now_sec = now.tm_min,now.tm_sec
     time_passed = now_min * 60.0 + now_sec - (minutes * 60.0 + seconds)
@@ -134,6 +117,24 @@ def checkTime(minutes,seconds):
 
 # 开始游戏 函数
 def startGame(newPic,VHNUMS):
+    # 初始化
+    pygame.init()
+    pygame.mixer.init()
+    mainClock = pygame.time.Clock()
+    #设置图标
+    icoPath = os.getcwd()+'/favicon.ico'
+    icoSet = pygame.image.load(icoPath)
+    pygame.display.set_icon(icoSet)
+
+    #成功
+    success = pygame.mixer.Sound(os.getcwd()+'success.wav')
+    success.set_volume(0.25)
+
+    info_surface = pygame.Surface((300,100))
+    font = pygame.font.Font(os.getcwd()+"/simsun.ttf",17)
+
+    pretime_min,pretime_sec=startTime()
+
     CELLNUMS=VHNUMS*VHNUMS
     # 加载图片
     gameImage = pygame.image.load(newPic)
@@ -212,8 +213,8 @@ def startGame(newPic,VHNUMS):
                 pygame.draw.line(windowSurface, BLACK, (0, i * cellHeight), (gameRect.width, i * cellHeight))
             if checkTime(pretime_min,pretime_sec):
                 passtime=True
-            draw_info(info_surface,pretime_min,pretime_sec)
-            windowSurface.blit(info_surface,(550, 130))
+            draw_info(info_surface,pretime_min,pretime_sec,font)
+            windowSurface.blit(info_surface,(gameRect.width+40, gameRect.height/2))
             pygame.display.update()
             mainClock.tick(FPS)
 

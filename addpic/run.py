@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Date    : 2018-01-12 00:01:09
-# @Author  : Bayi (328588917@qq.com)
+# @Author  : Bayi
 # @Link    : https://blog.flywinky.top/
 
 import os
@@ -10,12 +10,12 @@ from game import startGame
 
 class MyDialog(wx.Dialog): 
    def __init__(self, parent, title,picPath):
-   		image = wx.Image(picPath.encode('utf8'), wx.BITMAP_TYPE_ANY)
-		temp = image.ConvertToBitmap()
-		size = temp.GetWidth(), temp.GetHeight()
-		super(MyDialog, self).__init__(parent, title = title, size = size)
-		panel = wx.Panel(self)
-		self.bmp = wx.StaticBitmap(self,-1,temp,size=size)
+   	    image = wx.Image(picPath.encode('utf8'), wx.BITMAP_TYPE_ANY)
+   	    temp = image.ConvertToBitmap()
+   	    size = temp.GetWidth(), temp.GetHeight()
+   	    super(MyDialog, self).__init__(parent, title = title, size = size)
+   	    panel = wx.Panel(self)
+   	    self.bmp = wx.StaticBitmap(self,-1,temp,size=size)
 
 class Mywin(wx.Frame):
 	def __init__(self, parent, title):

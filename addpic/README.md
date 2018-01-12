@@ -7,3 +7,5 @@ pygame+wxPython
 [用pygame实现的简单的拼图游戏](https://github.com/rio-2607/puzzle/blob/master/puzzle.py)
 
 ![效果](https://s1.ax1x.com/2018/01/12/pG0JW8.md.png)
+
+>requirements.txt里面多输出一部分依赖.....
