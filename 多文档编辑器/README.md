@@ -5,7 +5,3 @@
 >使用C#窗体生成
 
 ![功能](http://on2mh1s1f.bkt.clouddn.com/C%23.png)
-
-效果预览
-
-![效果](http://on2mh1s1f.bkt.clouddn.com/%E6%95%88%E6%9E%9C.png)

@@ -1,0 +1,12 @@
+C:\Users\bayi\Desktop\shiyan\phonebookC\phonebookC\obj\x86\Debug\phonebook.Form_Add.resources
+C:\Users\bayi\Desktop\shiyan\phonebookC\phonebookC\obj\x86\Debug\phonebook.Form_Edit.resources
+C:\Users\bayi\Desktop\shiyan\phonebookC\phonebookC\obj\x86\Debug\phonebook.Form_Main.resources
+C:\Users\bayi\Desktop\shiyan\phonebookC\phonebookC\obj\x86\Debug\phonebook.Form_Search.resources
+C:\Users\bayi\Desktop\shiyan\phonebookC\phonebookC\obj\x86\Debug\phonebook.Properties.Resources.resources
+C:\Users\bayi\Desktop\shiyan\phonebookC\phonebookC\obj\x86\Debug\phonebookC.csproj.GenerateResource.Cache
+C:\Users\bayi\Desktop\shiyan\phonebookC\phonebookC\bin\Debug\phonebook.exe
+C:\Users\bayi\Desktop\shiyan\phonebookC\phonebookC\bin\Debug\phonebook.pdb
+C:\Users\bayi\Desktop\shiyan\phonebookC\phonebookC\obj\x86\Debug\phonebook.exe
+C:\Users\bayi\Desktop\shiyan\phonebookC\phonebookC\obj\x86\Debug\phonebook.pdb
+D:\我只是临时的\shiyan\phonebookC\phonebookC\obj\x86\Debug\phonebook.exe
+D:\我只是临时的\shiyan\phonebookC\phonebookC\obj\x86\Debug\phonebook.pdb

@@ -16,5 +16,3 @@
 不过只修正了添加功能
 
 >还好不算耻辱退场.....:no_mouth:
-
-![phonebook](http://on2mh1s1f.bkt.clouddn.com/phonebook.png)

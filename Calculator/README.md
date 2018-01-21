@@ -10,7 +10,6 @@
 拓展功能只增加了一个基本养老保险的计算
 其它拓展写更多方法也是相似的
 
-效果预览
+拓展预览
 
-![主页面](http://on2mh1s1f.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171210230301.png)
 ![拓展](http://on2mh1s1f.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171210230321.png)

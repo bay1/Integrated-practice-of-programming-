@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<studentcontract>
+  <student studentid="1">
+    <name>张三</name>
+    <sex>男</sex>
+    <age>19</age>
+    <birthdate>1999-02-18</birthdate>
+    <phone>13111111111</phone>
+    <homeaddress>江苏省徐州市</homeaddress>
+    <email>123@qq.com</email>
+    <profession>计算机科学与技术</profession>
+  </student>
+  <student studentid="2">
+    <name>李四</name>
+    <sex>男</sex>
+    <age>18</age>
+    <birthdate>2000-03-02</birthdate>
+    <phone>13111111111</phone>
+    <homeaddress>北京市</homeaddress>
+    <email>1233456@qq.com</email>
+    <profession>信息安全</profession>
+  </student>
+</studentcontract>
